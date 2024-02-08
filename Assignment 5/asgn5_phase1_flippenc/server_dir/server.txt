@@ -1,0 +1,40 @@
+Christopher Flippen
+CMSC 257 Asgn 5 Phase 1 - Server Pseudocode
+
+Obtain the port from the command line parameters and store it into a variable
+If an invalid port is entered, print a message and exit with an error condition
+The port should be between 50000 and 60000
+
+Create a socket
+Set socket options
+
+Bind the socket
+
+Listen for connections
+
+Keep looping until something causes the server to stop, this allows for potentially infinitely many clients to connect
+In phase 2, signal handling will be added and a signal will be used to close the program gracefully
+
+Accept client connection
+Fork and allow the child to handle the client session
+The parent function will close down the client connection once the child is done
+
+CHILD FUNCTION:
+
+Read the filename from the client
+Open the specified file with the flags needed to send it correctly
+
+While there is data left to send from the file:
+Read up to 50 bytes of the file into a buffer
+Send the buffer to the client
+If there is an error sending the file, print an error and close the client connection
+
+When the whole file has been sent to the client, close the file
+
+END OF CHILD FUNCTION
+
+PARENT FUNCTION:
+
+close the client socket
+
+END OF PARENT FUNCTION

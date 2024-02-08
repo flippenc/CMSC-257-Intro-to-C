@@ -1,0 +1,201 @@
+Blocked - elapsed time is mostly accurate, it seemed to be within 10% of correct time for the processes that took the longest
+
+BSIZE = 2
+n = 1000
+Elapsed time: 34.20
+DP MFLOPS 58.48
+
+BSIZE = 2
+n = 100
+Elapsed time: 0.01
+DP MFLOPS 200.00
+
+BSIZE = 100
+n = 1000
+Elapsed time: 7.60
+DP MFLOPS: 263.16
+
+BSIZE = 100
+n = 100
+Elapsed time: 0.01
+DP MFLOPS 200.00
+
+BSIZE = 2
+n = 2000
+Elapsed time: 203.90
+DP MFLOPS: -5.79 (~4000)
+
+BSIZE = 2
+n = 2000
+Elapsed time: 241.31
+DP MFLOPS: -4.89 (~4000)
+
+BSIZE = 2
+n = 2000
+Elapsed time: 230.17
+DP MFLOPS: -5.13 (~4000)
+
+BSIZE = 100
+n= 2000
+Elapsed time: 46.56
+DP MFLOPS: -25.34 (~4000?)
+
+BSIZE = 100
+n = 500
+Elapsed time: 1.33
+DP MFLOPS: 187.97
+
+BSIZE = 2
+n = 250
+Elapsed time: 0.28
+DP MFLOPS: 111.61
+
+BSIZE = 100
+n = 250
+Elapsed time: 0.14
+DP MFLOPS: 223.21
+
+BSIZE = 10
+n = 1000
+Elapsed time: 7.56
+DP MFLOPS: 264.55
+
+BSIZE = 10
+n = 250
+Elapsed time: 0.2
+DP MFLOPS: 156.25
+
+BSIZE = 35
+n = 250
+Elapsed time = 0.21
+DP MFLOPS: 148.81
+
+BSIZE = 35
+n = 1000
+Elapsed time = 6.78
+DP MFLOPS: 294.99
+
+BSIZE = 1000
+n = 1000
+Elapsed time = 16.10
+DP MFLOPS: 124.22
+
+BSIZE = 1000
+n = 2000
+Elapsed time = 59.61
+DP MFLOPS: -19.79
+
+BSIZE = 1000
+n = 250
+Elapsed time = 0
+DP MFLOPS: inf
+
+BSIZE = 1
+n = 250
+Elapsed time = 0.41
+DP MFLOPS: 76.22
+
+BSIZE = 1
+n = 100
+Elapsed time = 0.02
+DP MFLOPS: 100.00
+
+BSIZE = 1
+n = 2000
+Elapsed time = 458.99
+DP MFLOPS: -2.57
+
+BSIZE = 5
+n = 1000
+Elapsed time = 87.66
+DP MFLOPS: 22.82
+
+BSIZE = 5
+n = 250
+Elapsed time = 0.41
+DP MFLOPS: 76.22
+
+BSIZE = 5
+n = 2000
+Elapsed time = 476.30
+DP MFLOPs: -2.48
+
+BSIZE = 10
+n = 250
+Elapsed time = 0.2
+DP MFLOPS: 156.25
+
+BSIZE = 10
+n = 1000
+Elapsed time = 6.37
+DP MFLOPS: 313.97
+
+BSIZE = 10
+n = 2000
+Elapsed time = 51.62
+DP MFLOPS: -22.86
+
+BSIZE = 50
+n = 250
+Elapsed time = 0.17
+DP MFLOPS: 183.82
+
+BSIZE = 50
+n = 1000
+Elapsed time = 7.31
+DP MFLOPS: 273.60
+
+BSIZE = 50
+n = 2000
+Elapsed time = 42.96
+DP MFLOPS: -27.46
+
+BSIZE = 200
+n = 250
+Elapsed time = 0.13
+DP MFLOPS: 240.38
+
+BSIZE = 200
+n = 1000
+Elapsed time = 6.87
+DP MFLOPS: 291.12
+
+BSIZE = 200
+n = 2000
+Elapsed time = 50.27
+DP MFLOPS: -23.47
+
+BSIZE = 75
+n = 250
+Elapsed time = 0.1
+DP MFLOPS: 312.50
+
+BSIZE = 75
+n = 1000
+Elapsed time = 6.41
+DP MFLOPS: 312.01
+
+BSIZE = 75
+n = 2000
+Elapsed time = 44.11
+DP MFLOPS: -26.75
+
+BSIZE = 75
+n = 750
+Elapsed time: 3.50
+DP MFLOPS: 241.07
+
+BSIZE = 75
+n = 1250
+Elapsed time: 12.19
+DP MFLOPS: 320.45
+
+BSIZE = 75
+n = 1500
+Elapsed time: 22.58
+DP MFLOPS:  -81.49
+
+BSIZE = 75
+n = 1750
+Elapsed time: 40.68
+DP MFLOPS: 52.33

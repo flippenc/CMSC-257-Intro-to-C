@@ -1,0 +1,75 @@
+Normal
+
+n = 1000
+Elapsed time: 17.88 (accurate within 1 sec)
+DP MFLOPS: 111.86 
+
+n = 2000
+Elapsed time: 303.04 sec (accurate within 1 sec)
+DP MFLOPS: -3.89
+
+n = 500
+Elapsed time: 1.81 (accurate)
+DP MFLOPS: 138.12
+
+n = 250
+Elapsed time: 0.25 sec
+DP MFLOPS: 125.00
+
+n = 100
+Elapsed time: 0.01 sec
+DP MFLOPS: 200.00
+
+n = 750
+Elapsed time: 4.48
+DP MFLOPS: 188.34
+
+n = 1250
+Elapsed time: 51.68
+DP MFLOPS: 75.59
+
+n = 1500
+Elapsed time: 105.48
+DP MFLOPS: -17.44
+
+n = 1750
+Elapsed time: 170.82
+DP MFLOPS: 12.46
+
+Transposed
+
+n = 100
+Elapsed time: 0.01 sec (Accurate)
+DP MFLOPS: 200.00
+
+n = 250
+Elapsed time: 0.13 (accurate)
+DP MFLOPS: 240.38
+
+n = 500
+Elapsed time: 1.17
+DP MFLOPS: 213.68
+
+n = 750
+Elapsed time: 2.93
+DP MFLOPS: 287.97
+
+n = 1000
+Elapsed time: 6.39 (accurate)
+DP MFLOPS: 312.99
+
+n = 1250
+Elapsed time: 12.08
+DP MFLOPS: 323.37
+
+n = 1500
+Elapsed time: 23.00
+DP MFLOPS: -80.00
+
+n = 1750
+Elapsed time: 32.31
+DP MFLOPS: 65.89
+
+n = 2000
+Elapsed time: 41.54 (accurate)
+DP MFLOPS: -28.40

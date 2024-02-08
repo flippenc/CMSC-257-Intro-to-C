@@ -1,0 +1,123 @@
+Christopher Flippen
+CMSC 257 Asgn 5 Phase 1. Server Pseudocode
+
+Syntax should be ./server [PORT]
+
+IF (number of args != 2)
+	print "Error in form of server parameters"
+	print "Format should be ./server [PORT]"
+	exit with error condition
+ENDIF
+
+int PORT = parameter for PORT ;
+
+IF (PORT < 50000 || PORT > 60000)
+	print "Error in PORT"
+	print "Print should be between 50000 and 60000"
+	exit with error condition
+ENDIF
+
+int sock;
+sock = socket( Socket with IPv4 and SOCKSTREAM )
+
+IF (sock < 0)
+	print "Server socket creation error"
+	exit with error condition
+ENDIF
+
+struct sockaddr_in serv_addr;
+
+serv_addr stores information about the server address including about the IP family and type as well as the PORT
+serv_addr is used for binding
+
+bind  ( bind the system to network using sock and serv_addr )
+IF (bind returns < 0)
+	print "Error binding"
+	exit client with error condition
+ENDIF
+
+listen(listen for clients using sock)
+
+WHILE (1) 
+	Keep looping until something causes it to stop, this loop allows for infinitly many clients to connect
+	In phase 2, signal handling will be added, a signal will be used to close the program cleanly
+
+	use accept() to establish client session
+	IF (accept returns < 0)
+		print "Error accepting"
+		exit client with error condition
+	ENDIF
+
+	Print out a message about the connection
+	print "Received a connection from [IP]"
+
+	fork child to handle client session
+	
+	int PID = fork();
+	If the forked process is the child, run the child function
+	IF (PID == 0)
+		run child function, this will deal with a client
+		child() the child function will have parameters to hold information about the client
+	Otherwise, the process is the parent, so the parent function is run
+	ELSE
+		run the parent function, this function will have parameters to get information
+		about the client in order to close the connection cleanly
+		parent()
+	ENDIF
+ENDO
+
+Later, signally will be added to the program so the server can be closed correctly if it receives the signal to do so
+The signally will involve:
+Closing the serversocket, notifying all active clients of early termination, close all files and client sockets, terminate child processes, and terminate parent process
+
+Code for Child/Parent:
+
+child() this function will have parameters to hold information about the client so that the file can be sent correctly
+{
+	int remainingLength = will hold how much of the file is left to send over
+	int startFrom = 0; This variable is used to keept track of how much of the file has been sent
+	char sendBuffer[50]; This string stores the next 50 bytes of data to send to the client
+	
+	Get FILENAME using read(), the client will have sent this filename using GET
+
+        read( the name of the file from the client )
+        IF (read() returns < 0)
+                print "Error getting file name"
+                exit client with error condition
+        ENDIF
+
+	int file;
+	open (the file with the name sent by the client)
+	IF (open() returns < 0 )
+		print "Error opening the file"
+		exit client with error condition
+	ENDIF 
+
+	The filename has been obtained from the client, check for it on the server and store information about it, including its length so it can be correctly sent over in sections of 50 bytes
+	
+	Use fstat() to get the information about the file
+	Using this information, get the length of the file to send and store the length in remainingLength
+
+	sendBuffer obtains data from file 50 bytes at a time
+	Using send(), the program sends over data from the file
+
+	WHILE (remainingLength > 0)
+        	sendBuffer = next 50 bytes of the file
+        	remainingLength-=50;
+        	startFrom+=50;
+        	send(the data in sendBuffer to the client);
+		IF (send() returns < 0)
+			print "Error in sending data to client"
+			exit client with error condition
+		ENDIF
+	ENDWHILE
+
+	close (file); once the file has been sent, it can be closed
+	exit the child function
+}
+
+parent() this function will have parameter(s) to be able to close the socket cleanly
+{
+	The parent will close the client socket because all of the children will be finished at this point
+	close ( the client socket );
+}

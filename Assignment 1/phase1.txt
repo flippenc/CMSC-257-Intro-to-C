@@ -1,0 +1,94 @@
+Assignment 1 Phase 1
+Christopher Flippen
+CMSC 257 Professor Dahlberg
+2/3/19
+1. What is a tarball and what are they used for?
+	A tarball refers to a tar file which collects and compresses
+        multiple files and directory data in a single file. Tar files
+	can end in the .tar extension. tar stands for tape archive
+2. What Linux command is used for interacting with tarballs?
+	Commands for working with tarballs start with tar such as
+	tar -cvf ./locationOfArchive.tar /filesToArchive
+3. What does "compressing an archive" mean? Name two programs used for
+   compressing tarballs. Also, name the standard naming conventions for
+   these compressed tarballs. (hint: a non compressed "[filename].tar".
+   What is the standard file extension for these compressed tarball types?)
+	Programs for compressing archieves include gzip, tar, and xz
+	An archive is a single file which contains the contents of many files
+	and keeps their properties.
+	Compressing an archive involves providing users with an organized
+	method of working with large amounts of data.
+	The convention for tar files is to have .tar as the file extension
+	but it is not required for them to work properly. If a tarball is 
+	compressed with a program other than the default tar, the extension
+	usually reflects this such as a tar file compressed with gzip being a 
+	.tgz or .tar.gz file. Other examples include .tar.bz2, .tbz, .tar.xz,
+	and .txz. Using the longer or shorter (.tgz or tar.gz) extensions does
+	not affect anything besides human readability.
+4. Outline the flags used with the above Linux command to do the following:
+	a. Create a new tarball
+		tar -cvf ./newTarball.tar ./directoryWithFilesToTar
+		This will create a tarball named newTarBall.tar out of the files
+		in directoryWithFilesToTar. The -c flag is to create the
+		tarball, the -v flag is verbose (lists all the files added), 
+		and -f specifies that it will read to the tarball
+		If the files aren't in the same directory or you don't want to
+		add a directory to the tarball,
+		tar -cvf ./newTarball.tar ./a.txt ./b.txt
+	b. Extract an existing tarball
+		tar -xvf ./newTarball.tar --directory ./extractToHere
+		This will extract the files from newTarball.tar to extractToHere
+		--directory specifies that we are extracting to a directory
+		-xvf extracts all files from newTarball.tar
+		tar -xvf ./newTarball.tar will extract the files but without a
+		specified output location
+	c. View the contents of a tarball
+		tar -tvf ./newTarball.tar will list the files in newTarball
+		vim ./newTarball.tar allows the user to read through the files
+		cat ./newTarball.tar prints the contents of all the files in 
+		the tar
+5. Suppose I have the files "a.txt" and "b.txt" and I want to create a 
+   compressed tarball containing these two files. What command would I use to 
+   do this? (assume the files are in the current directory, you may use either
+   of the comprssion methods you mentioned above).
+	tar -cvf ./newTarball.tar ./a.txt ./b.txt
+	This will create a newTarball with the files a.txt and b.txt
+6. Now that I have the above compressed tarball, I want to send it to my friend.
+   However, I first want to check that the tarball was created properly. What
+   command can I use to check this without extracting the tarball?
+	tar -tvf ./newTarball.tar prints the files in the tarball without
+	extracting
+7. Now that I have verified the tarball, I send it to my friend. What command
+   should my friend use to extract it?
+	As listed before, tar -xvf ./newTarball.tar will extract the files but
+	without an output location
+	tar -xvf ./newTarball.tar --directory ./extractToHere will extract the
+	files to the directory ./extractToHere
+8. It is often useful to archive an entire directory of files. Suppose I have a
+   project under the directory "project". What command can I use to archive this
+   entire directory into one tarball?
+	tar -cvf ./newTarball.tar ./project will extract the durectory into a 
+	tarball called newTarball.tar
+9. Sometimes it is necessary to archive files in a different location than the
+   current directory. What flag can be used to do this? (hint: try looking for
+   flags that "change directory").
+	The -C (or --directory) flag can be used to do this such as 
+	tar -cvf /home/flippenc/archive.tar -C /home/flippenc/testFiles .
+	This creates a tar file out of the files in testFiles. The period
+	specifies all files within testFiles should be includes in the tarball
+10. Consider the following situation: In my current directory, I have a
+    directory of files called "dir". In this directory, I have the files
+    "header.h", "exec", a number of C source files, and a number of object
+    files. I want to create a compressed tarball called "out.[file_extension]" 
+    in the current directory. This tarball should contain only the C source 
+    files and the header file "header.h". What single Linux command can I use 
+    to create this? (you may use either of the previously mentioned compression 
+    methods, with the previously mentioned file extensions).
+	Since the C source files would have the extension .c, they can all be
+	selected using a wildcard. *.c refers to all files with the .c extension
+	Since header.h's extension and name are known, we don't need a wildcard
+	for it.
+	../out.tar chooses the previous directory for the tar file.
+	To create this tar, one possible set of commands is:
+	cd /dir
+	tar -cvf ../out.tar *.c header.h

@@ -1,0 +1,33 @@
+Christopher Flippen
+CMSC 257 Asgn 5  Phase 1 - Client Pseudocode
+
+Obtain command line parameters and store them into variables
+The parameters will be the port, IP, and filename
+If the parameters are not in the correct format, print a message
+and exit with an error condition
+Port should be between 50000 and 60000
+IP should be the IPv4 format
+The filename should be <= 50 characters long
+
+Create a socket
+Set socket options
+
+connect to the server
+If the program can't connect, print a message and exit with an error condition
+
+send a message to the server containing the filename
+If sending the message fails, print a message and exit with an error condition
+
+Open a file with the same name as the name sent to the server
+Use the correct flags for opening the files so that it can be created and written to correctly
+
+Use a loop to keep reading information from the server and writing the received data to the file
+This program will receive the file 50 bytes at a time
+If there is an error reading or writing, print a message and exit with an error condition
+
+The client has received all of the data from the server at this point,
+so the program is done for the client, time to close everything on the client side
+
+close the file
+The server will close the client socket
+exit the client with a success condition

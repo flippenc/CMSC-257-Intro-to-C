@@ -1,0 +1,109 @@
+Float Display:
+      4.00      13.00      20.00       8.00      18.00       9.00      12.00       5.00      11.00      15.00       3.00      17.00       7.00      14.00       1.00      10.00       2.00      19.00       6.00      16.00
+Integer Display:
+      4      13      4       8      2       9      12       5      11      15       3      1       7      14       1      10       2      3       6      0 
+The integer array value 4 has 1 bits.
+The integer array value 13 has 3 bits.
+The integer array value 4 has 1 bits.
+The integer array value 8 has 1 bits.
+The integer array value 2 has 1 bits.
+The integer array value 9 has 2 bits.
+The integer array value 12 has 2 bits.
+The integer array value 5 has 2 bits.
+The integer array value 11 has 3 bits.
+The integer array value 15 has 4 bits.
+The integer array value 3 has 2 bits.
+The integer array value 1 has 1 bits.
+The integer array value 7 has 3 bits.
+The integer array value 14 has 3 bits.
+The integer array value 1 has 1 bits.
+The integer array value 10 has 2 bits.
+The integer array value 2 has 1 bits.
+The integer array value 3 has 2 bits.
+The integer array value 6 has 2 bits.
+The integer array value 0 has 0 bits.
+The sorted integers are:
+      0       1       1       2       2       3       3       4       4      5      6      7      8      9      10      11      12      13      14      15 
+The number of even floats is: 10
+The number of even ints is: 10
+The most common value(s) is/are: 1 2 3 4
+The unsigned short value 0x0:
+  ORIG : 0000000000000000
+  REVR : 0000000000000000
+  VAL  : 0
+The unsigned short value 0x1:
+  ORIG : 0000000000000001
+  REVR : 1000000000000000
+  VAL  : 32768
+The unsigned short value 0x1:
+  ORIG : 0000000000000001
+  REVR : 1000000000000000
+  VAL  : 32768
+The unsigned short value 0x2:
+  ORIG : 0000000000000010
+  REVR : 0100000000000000
+  VAL  : 16384
+The unsigned short value 0x2:
+  ORIG : 0000000000000010
+  REVR : 0100000000000000
+  VAL  : 16384
+The unsigned short value 0x3:
+  ORIG : 0000000000000011
+  REVR : 1100000000000000
+  VAL  : 49152
+The unsigned short value 0x3:
+  ORIG : 0000000000000011
+  REVR : 1100000000000000
+  VAL  : 49152
+The unsigned short value 0x4:
+  ORIG : 0000000000000100
+  REVR : 0010000000000000
+  VAL  : 8192
+The unsigned short value 0x4:
+  ORIG : 0000000000000100
+  REVR : 0010000000000000
+  VAL  : 8192
+The unsigned short value 0x5:
+  ORIG : 0000000000000101
+  REVR : 1010000000000000
+  VAL  : 40960
+The unsigned short value 0x6:
+  ORIG : 0000000000000110
+  REVR : 0110000000000000
+  VAL  : 24576
+The unsigned short value 0x7:
+  ORIG : 0000000000000111
+  REVR : 1110000000000000
+  VAL  : 57344
+The unsigned short value 0x8:
+  ORIG : 0000000000001000
+  REVR : 0001000000000000
+  VAL  : 4096
+The unsigned short value 0x9:
+  ORIG : 0000000000001001
+  REVR : 1001000000000000
+  VAL  : 36864
+The unsigned short value 0xA:
+  ORIG : 0000000000001010
+  REVR : 0101000000000000
+  VAL  : 20480
+The unsigned short value 0xB:
+  ORIG : 0000000000001011
+  REVR : 1101000000000000
+  VAL  : 53248
+The unsigned short value 0xC:
+  ORIG : 0000000000001100
+  REVR : 0011000000000000
+  VAL  : 12288
+The unsigned short value 0xD:
+  ORIG : 0000000000001101
+  REVR : 1011000000000000
+  VAL  : 45056
+The unsigned short value 0xE:
+  ORIG : 0000000000001110
+  REVR : 0111000000000000
+  VAL  : 28672
+The unsigned short value 0xF:
+  ORIG : 0000000000001111
+  REVR : 1111000000000000
+  VAL  : 61440

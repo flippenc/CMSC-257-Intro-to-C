@@ -1,0 +1,119 @@
+findip
+./out
+Output:
+usage: showip hostname
+
+./out www.google.com
+Output:
+IP addresses for www.google.com:
+	IPv4: 172.217.7.196
+	IPv6: 2607:f8b0:4004:801::2004
+
+./out www.youtube.com
+Output:
+IP addresses for www.youtube.com:
+
+  IPv4: 172.217.6.238
+  IPv4: 172.217.11.14
+  IPv4: 172.217.12.206
+  IPv4: 172.217.12.174
+  IPv4: 172.217.3.110
+  IPv4: 172.217.6.206
+  IPv4: 172.217.12.142
+  IPv4: 172.217.11.46
+  IPv4: 172.217.10.46
+  IPv4: 172.217.10.238
+  IPv4: 172.217.9.238
+  IPv6: 2607:f8b0:4004:800::200e
+
+./out www.vcu.edu
+Output:
+IP addresses for www.vcu.edu:
+
+  IPv4: 128.172.22.56
+
+./out www.cnn.com
+Output:
+IP addresses for www.cnn.com:
+
+  IPv4: 151.101.249.67
+  IPv6: 2a04:4e42:3b::323
+
+./out www.nbc.com
+Output:
+IP addresses for www.nbc.com:
+
+  IPv4: 23.218.40.171
+  IPv6: 2600:1408:7:2b4::106c
+  IPv6: 2600:1408:7:2a9::106c
+
+./out 172.18.233.70 (this is the server IP)
+Output:
+IP addresses for 172.18.233.70:
+
+  IPv4: 172.18.233.70
+
+The output looks the same for any valid IP parameter
+
+dig www.google.com
+Prints much more output, and only gives the IP in the IPv4 form
+Lists number of errors, queries, answers, authority, and additional
+includes "QUESTION SECTION" which displays the input and its flags
+includes ANSWER SECTION which displays the input and the resulting IP
+
+;; QUESTION SECTION:
+;www.google.com.                        IN      A
+
+;; ANSWER SECTION:
+www.google.com.         165     IN      A       172.217.7.196
+
+;; Query time: 1 msec
+;; SERVER: 192.168.8.1#53(192.168.8.1)
+;; WHEN: Tue Apr 09 09:59:32 EDT 2019
+;; MSG SIZE  rcvd: 59
+
+dig does appear different when an IP is the parameter
+;; QUESTION SECTION:
+;172.18.233.70.                 IN      A
+
+;; AUTHORITY SECTION:
+.                       896     IN      SOA     a.root-servers.net. nstld.verisign-grs.com. 2019040900 1800 900 604800 86400
+
+p is a pointer to an addrinfo struct
+addrinfo structs describe address information for use with TCP/IP
+getaddrinfo() used to get the information
+freeaddrinfo() used to free a linked list of addrinfo structs
+addrinfo structs include these members:
+ai_flags - flags for the struct
+ai_family - protocol family, includes PF_UNSPEC and PF_INET
+ai_socktype - socket type, includes SOCK_STREAM and SOCK_DGRAM
+ai_protocol - protocol, includes IPPROTO_TCP and IPPROTO_UDP
+ai_addrlen - the length of the ai_addr member
+ai_canonname - the canonical name for nodename
+ai_addr - binary socket address
+ai_next - a pointer to the next addrinfo structure in the linked list
+
+struct addrinfo {
+    int ai_flags;
+    int ai_family;
+    int ai_socktype;
+    int ai_protocol;
+    size_t ai_addrlen;
+    char * ai_canonname;
+    struct sockaddr * ai_addr;
+    struct addrinfo * ai_next
+};
+
+p's initial value is res
+res is the destination of the getaddrinfo function, it stores information about the IP from argv[1]
+p forms a singly linked list of addrinfo structs
+
+[flippenc@cmsc257 lab9]$ ./client localhost
+client: connect: Connection refused
+client: connecting to 127.0.0.1
+client: received 'Hello, world!'
+[flippenc@cmsc257 lab9]$ ./client 172.18.233.70
+client: connecting to 172.18.233.70
+client: received 'Hello, world!'
+
+The server does not send the string terminator

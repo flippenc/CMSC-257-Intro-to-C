@@ -1,0 +1,15 @@
+Default output before changing sleep(1) and sleep(2):
+This is from thread function
+Caught signal 11
+Name:Mr. Linux
+Age:30
+
+After changing sleep(1) and sleep(2)
+Caught signal 11
+This is from thread function
+Name:Mr. Linux
+Age:30
+
+The version without sleep runs instantly while the one with sleep takes about 2 sec
+The order of "caught signal 11" and "this is from thread function" is flipped
+by removing the sleep statements

@@ -1,0 +1,110 @@
+Christopher Flippen
+CMSC 257 Phase 1. Client Code
+
+Syntax for the parameters : ./client [IP] [PORT] [FILENAME]
+
+IF (number of args !=  4)
+	print "Error in form of client parameters"
+	print "Format should be ./client [IP] [PORT] [FILENAME]"
+	exit with error condition
+ENDIF
+
+Store port into a variable from the parameters
+int PORT = parameter for port; 
+
+The port is supposed to be between 50000 and 60000
+
+IF (PORT < 50000 || PORT > 60000)
+	print "PORT must be between 50000 and 60000"
+	exit with error condition
+ENDIF
+
+Store parameters into variables
+
+char FILENAME[50] = parameter for filename, filename has to be less than 50 bytes;
+
+char buf[50]; 
+buf will be used to transport data between the server and the client at 50 bytes at a time
+
+Use inet_pton to convert the IP from a String into binary
+
+int IP = inet_pton(information about the IP in order to convert it);
+IF ( inet_pton returns < 0 )
+	print "Error in IP address format"
+	exit with error condition
+ENDIF
+
+Get information about a server by using getaddrinfo
+struct addrinfo *servinfo;
+servinfo = getaddrinfo( get necessary informaton about the server );
+
+IF ( servinfo < 0 )
+	print "Error in getaddrinfo"
+	exit with error condition
+ENDIF
+
+int sock;
+
+Using information from servinfo, use the socket function and store its output to sock
+
+sock = socket( create a socket with the correct parameters )
+
+IF (sock < 0)
+	print "Error in making socket"
+	exit with error condition
+ENDIF
+
+Socket is closed at the end of the program
+
+connect ( Connect to the server )
+IF (connect returns < 0 )
+	print "Connection failed"
+	exit with error condition
+ENDIF
+
+Send a message to the server
+
+char message[]; will hold the message sent to the server, it will be in form GET [FILENAME]
+
+Use send with sock and the message to send the message to the server
+
+send( a message to the server including the GET [FILENAME] message )
+
+IF (send returns < 0 )
+	printf "Send failed"
+	exit with error condition
+ENDIF
+
+int file;
+file = open(open a file with the name FILENAME )
+
+IF (file < 0)
+	print "File open failed"
+	exit with error condition
+ENDIF
+
+File closes at the end of the program
+
+int n; Used for storing number of bytes sent from the server
+
+While the server keeps sending data, keep reading and writing to the file
+If read() returns =< 0, then all the data has been received
+Using read(), write the information from the server to buf
+
+WHILE (	n = read() > 0 )
+
+	read() next 50 bytes of data into buf
+	Try to write that data from buf to file
+	IF (write() returns  < 0)
+		print "Write failed"
+		exit with error condition
+	ENDIF
+
+ENDWHILE
+
+The client has received all of the data from the server, so the program is done for the client, time to close everything on the client side 
+
+Closing the file and socket
+close( file )
+close ( sock )
+exit with success condition
